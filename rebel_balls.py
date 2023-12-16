@@ -2,6 +2,7 @@ import random
 import tkinter as tk
 import time
 
+#window will open and circles will move back and forth
 root = tk.Tk()
 width = 400
 height = 400
@@ -19,10 +20,9 @@ def create_oval():
 
 circles = []
 for i in range(5):
-    data = {}
-    data["dx"] = random.randint(-10, 10)
-    data["dy"] = random.randint(-10, 10)
-    data["id"] = create_oval()
+    data = {"dx": random.randint(-10, 10),
+            "dy": random.randint(-10, 10),
+            "id": create_oval()}
     circles.append(data)
 
 while True:
