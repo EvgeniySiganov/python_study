@@ -31,3 +31,35 @@ def encrypt(s, k):
         else:
             result += i
     return result
+
+
+def sum_of_two_digits():
+    try:
+        a = int(input("Введите первое число: "))
+        b = int(input("Введите второе число: "))
+        print("Сумма равна: " + str((a + b)))
+    except ValueError:
+        print('Вы ввели не число')
+
+
+# enter three products and their counts. It will be written to catalog.txt
+def online_shopping():
+    catalog = {}
+
+    with open('catalog.txt', 'a+') as f:
+        f.seek(0)
+        for line in f:
+            key, value = line.strip().split(":", 1)
+            catalog[key] = int(value)
+
+    for i in range(3):
+        n = input("Введите наименование товара: ")
+        c = int(input("Введите количество: "))
+        if catalog.__contains__(n):
+            catalog[n] = catalog[n] + c
+        else:
+            catalog[n] = c
+
+    with open('catalog.txt', 'w') as f:
+        for key, value in catalog.items():
+            f.write(f'{key}:{value}\n')
