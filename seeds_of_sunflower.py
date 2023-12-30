@@ -1,3 +1,5 @@
+import json
+
 # calculation of factorial
 def factorial(n):
     f = 1
@@ -42,15 +44,15 @@ def sum_of_two_digits():
         print('Вы ввели не число')
 
 
-# enter three products and their counts. It will be written to catalog.txt
+# enter three products and their counts. It will be written to catalog.json
 def online_shopping():
     catalog = {}
 
-    with open('catalog.txt', 'a+') as f:
+    with open('catalog.json', 'a+') as f:
         f.seek(0)
-        for line in f:
-            key, value = line.strip().split(":", 1)
-            catalog[key] = int(value)
+        s = f.read()
+        if len(s) > 0:
+            catalog = json.loads(s)
 
     for i in range(3):
         n = input("Введите наименование товара: ")
@@ -60,6 +62,5 @@ def online_shopping():
         else:
             catalog[n] = c
 
-    with open('catalog.txt', 'w') as f:
-        for key, value in catalog.items():
-            f.write(f'{key}:{value}\n')
+    with open('catalog.json', 'w') as f:
+        f.write(json.dumps(catalog))
