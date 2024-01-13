@@ -1,5 +1,4 @@
 import json
-import datetime
 
 
 # calculation of factorial
@@ -66,8 +65,3 @@ def online_shopping():
 
     with open('catalog.json', 'w') as f:
         f.write(json.dumps(catalog))
-
-def show_date_time():
-    my_datetime = datetime.datetime.now()
-    datetime_str = my_datetime.strftime('%d %b\n%H:%M')
-    print(datetime_str)

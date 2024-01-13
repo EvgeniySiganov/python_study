@@ -1,4 +1,5 @@
 import seeds_of_sunflower as sos
+import time_is_money as tim
 
 #print(sos.choose_plural(11, ("рубль", "рубля", "рублей")))
 
@@ -14,4 +15,6 @@ print(decrypted_message)'''
 
 #sos.online_shopping()
 
-sos.show_date_time()
+#tim.show_time()
+
+tim.time_to_date_x()
