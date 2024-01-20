@@ -1,5 +1,6 @@
 import seeds_of_sunflower as sos
 import time_is_money as tim
+import go_for_a_walk as gfw
 
 #print(sos.choose_plural(11, ("рубль", "рубля", "рублей")))
 
@@ -17,4 +18,9 @@ print(decrypted_message)'''
 
 #tim.show_time()
 
-tim.time_to_date_x()
+#tim.time_to_date_x()
+
+#gfw.parsing_of_page()
+
+gfw.telegram_bot()
+
