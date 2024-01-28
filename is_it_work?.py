@@ -22,5 +22,6 @@ print(decrypted_message)'''
 
 #gfw.parsing_of_page()
 
-gfw.telegram_bot()
+#gfw.telegram_bot()
 
+sos.sort_words_without_letter_case()

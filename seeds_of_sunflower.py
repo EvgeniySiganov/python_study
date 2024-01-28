@@ -65,3 +65,10 @@ def online_shopping():
 
     with open('catalog.json', 'w') as f:
         f.write(json.dumps(catalog))
+
+
+def sort_words_without_letter_case():
+    words = input('Enter words:\n')
+    arr = words.split()
+    arr.sort(key=lambda x: x.lower())
+    print(" ".join(arr))
