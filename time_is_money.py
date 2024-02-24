@@ -4,6 +4,7 @@ import sys
 
 import seeds_of_sunflower as sos
 
+
 def show_time():
     root = tkinter.Tk()
     canvas = tkinter.Canvas(root, width=400, height=400, bg='white')
@@ -56,8 +57,3 @@ def time_to_date_x():
     else:
         text += sos.choose_plural(minutes, minutes_plural)
         print(text)
-
-
-
-
-
