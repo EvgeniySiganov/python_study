@@ -52,6 +52,7 @@ class TicTacToe(tkinter.Canvas):
         self.create_line(x, y, x + 100, y + 100, fill='blue', width=3)
         self.create_line(x + 100, y, x, y + 100, fill='blue', width=3)
 
+    # Bot
     def add_o(self, column, row):
         x = column * 100
         y = row * 100
@@ -59,15 +60,27 @@ class TicTacToe(tkinter.Canvas):
 
     def bot_move(self):
         list_free = [index for index, value in enumerate(self.state) if value is None]
-        if len(list_free) > 0:
+        random_choose = None
+        while len(list_free) > 0:
             random_choose = list_free[random.randint(0, len(list_free) - 1)]
             self.state[random_choose] = "o"
-            if random_choose < 3:
-                self.add_o(random_choose, 0)
-            elif random_choose < 6:
-                self.add_o(random_choose - 3, 1)
+            if self.get_winner() == 'o_win':
+                self.move(random_choose)
+                break
             else:
-                self.add_o(random_choose - 6, 2)
+                self.state[random_choose] = None
+                list_free.remove(random_choose)
+        if random_choose:
+            self.state[random_choose] = "o"
+            self.move(random_choose)
+
+    def move(self, choose):
+        if choose < 3:
+            self.add_o(choose, 0)
+        elif choose < 6:
+            self.add_o(choose - 3, 1)
+        else:
+            self.add_o(choose - 6, 2)
 
     def get_winner(self):
         conditions = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]]
@@ -89,7 +102,6 @@ class TicTacToe(tkinter.Canvas):
             else:
                 x_win = 0
                 o_win = 0
-        print(draw)
         if draw == 24:
             return 'draw'
         else:
