@@ -1,4 +1,5 @@
 import cmath
+import sys
 
 
 name = 'Evgenii'
@@ -43,9 +44,28 @@ def enter_three_num():
         yield int(n)
 
 
+def files():
+    with open("MyZen.txt", "w") as w:
+        w.write("Beautiful is better then ugly.\n")
+        w.writelines(["Simple is better difficult.\n", "Difficult is better confuse.\n"])
+        w.flush()
+    print("Content of your file: ")
+    with open("MyZen.txt", "r") as r:
+        print(r.read())
+
+
+def stream():
+    print("display", "everything,", "that is position arguments here - in standard default output stream")
+    print("but i can also display in stderr", file=sys.stderr)
+    print("i can in everything at all", file=open("MyZen.txt", "w"))
+    print("by default sep=' '", sep=" ")
+
+
 if __name__ == '__main__':
     #helloer(name)
     #get_result_entering_numbers()
-    quadratic_equation(*enter_three_num())
+    #quadratic_equation(*enter_three_num())
+    #files()
+    stream()
 
 
